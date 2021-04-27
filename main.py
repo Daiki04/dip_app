@@ -34,9 +34,7 @@ if uploaded_file is not None:
         with st.spinner("データ読み込み中．．．"):
             data_up = pd.read_csv(uploaded_file)
             st.dataframe(data_up.head(11))
-            load_text.write("""
-                #### 予測対象データ
-            """)
+            load_text.markdown("**予測対象データ**")
             size_text.write(f"{data_up.shape[0]}行{data_up.shape[1]}列")
     except:
         st.sidebar.error("CSV形式のファイルを入力して下さい")
@@ -166,10 +164,8 @@ if uploaded_file is not None:
             sub_test = pd.DataFrame(test["お仕事No."])
             sub_test["応募数 合計"] = test_pred
         st.balloons()
-        end_text.write("予測完了")
-        st.write("""
-            #### 予測結果
-        """)
+        end_text.markdown("**予測完了**")
+        st.markdown("**予測結果**")
         st.write(sub_test)
         sub.csv_downloader(sub_test)
         start_button.button("再実行")

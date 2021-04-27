@@ -1,0 +1,8 @@
+streamlit
+pandas
+mojimoji
+sklearn
+mecab-python3
+unidic-lite
+xgboost
+collection
